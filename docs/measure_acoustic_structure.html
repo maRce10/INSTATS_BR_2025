@@ -196,11 +196,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-colab-notebooks">    
         <li>
-    <a class="dropdown-item" href="https://colab.research.google.com/drive/1KKmndmWB73ZDLfT0eVBArEZX4eVGsVMc?usp=sharing">
+    <a class="dropdown-item" href="https://colab.research.google.com/drive/13Hb4sdvg6FgQi0pF1Z-Y2UrirVPpNJjb?usp=sharing">
  <span class="dropdown-text">General</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://colab.research.google.com/drive/1t3Wn9OifcZTvxOMVNmz9dF25vnzU3_Fr?usp=sharing">
+    <a class="dropdown-item" href="https://colab.research.google.com/github/maRce10/dynaSpec/blob/master/dynaSpec.ipynb">
  <span class="dropdown-text">dynaSpec</span></a>
   </li>  
         <li>
@@ -214,7 +214,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Course prep</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://codefile.io/f/inMsojTFoN"> 
+    <a class="nav-link" href="https://codefile.io/f/it6V84xpHM"> 
 <span class="menu-text">Code sharing</span></a>
   </li>  
   <li class="nav-item">
@@ -244,7 +244,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul class="collapse">
   <li><a href="#example-data" id="toc-example-data" class="nav-link active" data-scroll-target="#example-data"><span class="header-section-number">0.1</span> Example data</a></li>
-  <li><a href="#spectrographic-parameters" id="toc-spectrographic-parameters" class="nav-link" data-scroll-target="#spectrographic-parameters"><span class="header-section-number">0.2</span> Spectrographic parameters</a></li>
+  <li><a href="#spectrographic-features" id="toc-spectrographic-features" class="nav-link" data-scroll-target="#spectrographic-features"><span class="header-section-number">0.2</span> Spectrographic features</a></li>
   <li><a href="#statistical-descriptors-of-cepstral-coefficients" id="toc-statistical-descriptors-of-cepstral-coefficients" class="nav-link" data-scroll-target="#statistical-descriptors-of-cepstral-coefficients"><span class="header-section-number">0.3</span> Statistical descriptors of cepstral coefficients</a></li>
   <li><a href="#spectrographic-cross-correlation" id="toc-spectrographic-cross-correlation" class="nav-link" data-scroll-target="#spectrographic-cross-correlation"><span class="header-section-number">0.4</span> (Spectrographic) cross correlation</a></li>
   <li><a href="#dynamic-time-warping" id="toc-dynamic-time-warping" class="nav-link" data-scroll-target="#dynamic-time-warping"><span class="header-section-number">0.5</span> Dynamic time warping</a></li>
@@ -295,10 +295,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 <p>&nbsp;</p>
-<p>Acoustic signals are multidimensional traits; they vary complexly in time, frequency, amplitude and combinations of these dimensions. Generally, in biology we want to measure aspects of acoustic signals that vary in response to the factors predicted by our hypotheses. In some cases we even lack predictions for specific acoustic parameters and we need to evaluate the relative similarity between the variants of a signal in a population. These analyses require a diversity of tools for quantifying the multiple dimensions in which we can decompose the signals.</p>
+<p>Acoustic signals are multidimensional traits; they vary complexly in time, frequency, amplitude and combinations of these dimensions. Generally, in biology we want to measure aspects of acoustic signals that vary in response to the factors predicted by our hypotheses. In some cases we even lack predictions for specific acoustic features and we need to evaluate the relative similarity between the variants of a signal in a population. These analyses require a diversity of tools for quantifying the multiple dimensions in which we can decompose the signals.</p>
 <p>The <strong>warbleR</strong> package is designed to quantify the acoustic structure of a population of signals using 4 main methods of analysis. 2 of them are absolute measures of the structure:</p>
 <ul>
-<li>Spectrographic parameters</li>
+<li>Spectrographic features</li>
 <li>Statistical descriptors of cepstral coefficients</li>
 </ul>
 <p>The other 2 provide a relative similarity value between signals:</p>
@@ -492,9 +492,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>It is clear that each sound file contains a different variant of the song. We will use these data to illustrate the different methods of acoustic structure analysis available in <strong>warbleR</strong>.</p>
 </section>
-<section id="spectrographic-parameters" class="level2" data-number="0.2">
-<h2 data-number="0.2" class="anchored" data-anchor-id="spectrographic-parameters"><span class="header-section-number">0.2</span> Spectrographic parameters</h2>
-<p>The <code>spectro_analysis()</code> function measures the following spectrographic parameters related to amplitude distributions in time and frequency, descriptors of the fundamental and dominant frequency contours and descriptors of harmonic content:</p>
+<section id="spectrographic-features" class="level2" data-number="0.2">
+<h2 data-number="0.2" class="anchored" data-anchor-id="spectrographic-features"><span class="header-section-number">0.2</span> Spectrographic features</h2>
+<p>The <code>spectro_analysis()</code> function measures the following spectrographic features related to amplitude distributions in time and frequency, descriptors of the fundamental and dominant frequency contours and descriptors of harmonic content:</p>
 <p>&nbsp;</p>
 <div class="alert alert-success">
 <section id="time-and-frequency-measured-on-the-spectrogram" class="level4" data-number="0.2.0.1">
@@ -514,7 +514,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>freq.Q75: third frequency quartile. The frequency at which the signal is divided into two frequency ranges of 75% and 25% energy respectively (in kHz)</p></li>
 <li><p>freq.IQR: interquartile frequency range. Frequency range between ‘freq.Q25’ and ‘freq.Q75’ (in kHz)</p></li>
 <li><p>sp.ent: spectral entropy. Frequency spectrum energy distribution. Pure tone ~ 0; loud ~ 1</p></li>
-<li><p>peakf: peak frequency. Frequency with the highest energy. This parameter can take a considerable amount of time to measure. Only generated if <code>fast = FALSE</code>. It provides a more accurate measurement of the peak frequency than <code>meanpeakf()</code>, but can be more easily affected by background noise</p></li>
+<li><p>peakf: peak frequency. Frequency with the highest energy. This feature can take a considerable amount of time to measure. Only generated if <code>fast = FALSE</code>. It provides a more accurate measurement of the peak frequency than <code>meanpeakf()</code>, but can be more easily affected by background noise</p></li>
 <li><p>meanpeakf: mean peak frequency. Frequency with the highest energy of the medium frequency spectrum (see <code>meanspec()</code>). Typically more consistent than <code>peakf()</code></p></li>
 </ul>
 <p>&nbsp;</p>
@@ -1095,7 +1095,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="alert alert-info">
 <p><font size="5">Exercise</font></p>
 <ul>
-<li><p>The parameters related to harmonic content were not calculated. How can we do that?</p></li>
+<li><p>The features related to harmonic content were not calculated. How can we do that?</p></li>
 <li><p>How does measuring harmonic content affect performance?</p></li>
 <li><p>What does the argument ‘threshold’ do?</p></li>
 </ul>
@@ -1105,7 +1105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="statistical-descriptors-of-cepstral-coefficients" class="level2" data-number="0.3">
 <h2 data-number="0.3" class="anchored" data-anchor-id="statistical-descriptors-of-cepstral-coefficients"><span class="header-section-number">0.3</span> Statistical descriptors of cepstral coefficients</h2>
 <p>These coefficients were designed to decompose the sounds in a similar way than the human auditory system in order to facilitate speech recognition. The central idea is to compress the acoustic data maintaining only relevant information for the detection of phonetic differences. The principle refers to human hearing using the Mel logarithmic scale whose definition is based on how the human ear perceives frequency and loudness (Sueur 2018). Cepstral coefficients are literally defined as “the result of a cosine transformation of the real logarithm of short-term energy spectra expressed on a Mel frequency scale”.</p>
-<p>The descriptive statistics that are extracted from the cepstral coefficients are: minimum, maximum, average, median, asymmetry, kurtosis and variance. It also returns the mean and variance for the first and second derivatives of the coefficients. These parameters are commonly used in the processing and detection of acoustic signals (e.g.&nbsp;Salamon et al 2014). They have been widely used for human voice analysis and its use has extended to mammalian bioacoustics, although they also appear to be useful for quantifying the structure of acoustic signals in other groups.</p>
+<p>The descriptive statistics that are extracted from the cepstral coefficients are: minimum, maximum, average, median, asymmetry, kurtosis and variance. It also returns the mean and variance for the first and second derivatives of the coefficients. These features are commonly used in the processing and detection of acoustic signals (e.g.&nbsp;Salamon et al 2014). They have been widely used for human voice analysis and its use has extended to mammalian bioacoustics, although they also appear to be useful for quantifying the structure of acoustic signals in other groups.</p>
 <p>In <strong>warbleR</strong> we can calculate statistical descriptors of cepstral coefficients with the <code>mfcc_stats()</code> function:</p>
 <div class="cell">
 <details open="" class="code-fold">
@@ -3325,7 +3325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Similarly to the spectrographic parameters, we can reduce the dimensionality of the cepstral coefficients using PCA:</p>
+<p>Similarly to the spectrographic features, we can reduce the dimensionality of the cepstral coefficients using PCA:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
@@ -4204,7 +4204,7 @@ Adding another scale for fill, which will replace the existing scale.</code></pr
 <h2 data-number="0.6" class="anchored" data-anchor-id="additional-measures"><span class="header-section-number">0.6</span> Additional measures</h2>
 <section id="signal-to-noise-ratio" class="level3" data-number="0.6.1">
 <h3 data-number="0.6.1" class="anchored" data-anchor-id="signal-to-noise-ratio"><span class="header-section-number">0.6.1</span> Signal-to-noise ratio</h3>
-<p><code>sig2noise()</code> measures this parameter. The duration of the margin in which to measure the background noise must be provided (<code>mar</code> argument):</p>
+<p><code>sig2noise()</code> measures this feature. The duration of the margin in which to measure the background noise must be provided (<code>mar</code> argument):</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
@@ -4432,16 +4432,16 @@ Adding another scale for fill, which will replace the existing scale.</code></pr
 </div>
 <p>&nbsp;</p>
 </section>
-<section id="calculates-parameters-at-higher-levels-of-organization" class="level3" data-number="0.6.3">
-<h3 data-number="0.6.3" class="anchored" data-anchor-id="calculates-parameters-at-higher-levels-of-organization"><span class="header-section-number">0.6.3</span> Calculates parameters at higher levels of organization</h3>
-<p>Vocalizations can be organized above the basic signal units like in long repertoire songs or multi-syllable calls. We can calculate average or extreme values of acoustic parameters of the sub-units for these higher levels of organization using the function <code>song_analysis()</code>:</p>
+<section id="calculates-features-at-higher-levels-of-organization" class="level3" data-number="0.6.3">
+<h3 data-number="0.6.3" class="anchored" data-anchor-id="calculates-features-at-higher-levels-of-organization"><span class="header-section-number">0.6.3</span> Calculates features at higher levels of organization</h3>
+<p>Vocalizations can be organized above the basic signal units like in long repertoire songs or multi-syllable calls. We can calculate average or extreme values of acoustic features of the sub-units for these higher levels of organization using the function <code>song_analysis()</code>:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add a 'song' column</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>lbh_selec_table<span class="sc">$</span>song <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">each =</span> <span class="dv">3</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>]</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># measure default parameters</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># measure default features</span></span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">song_analysis</span>(<span class="at">X =</span> lbh_selec_table, <span class="at">song_colm =</span> <span class="st">"song"</span>, <span class="at">parallel =</span> <span class="dv">1</span>, <span class="at">pb =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
@@ -4562,16 +4562,16 @@ Adding another scale for fill, which will replace the existing scale.</code></pr
 </div>
 </div>
 </div>
-<p>This can also be done on parameters extracted from other functions:</p>
+<p>This can also be done on features extracted from other functions:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># measure acoustic parameters</span></span>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># measure acoustic features</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>sp <span class="ot">&lt;-</span> <span class="fu">spectro_analysis</span>(lbh_selec_table[<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>, ], <span class="at">bp =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">11</span>), <span class="dv">300</span>, <span class="at">fast =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>sp <span class="ot">&lt;-</span> <span class="fu">merge</span>(sp, lbh_selec_table[<span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>, ], <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"sound.files"</span>, <span class="st">"selec"</span>))</span>
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co"># caculate song-level parameters for all numeric parameters</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co"># caculate song-level features for all numeric features</span></span>
 <span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="fu">song_analysis</span>(<span class="at">X =</span> sp, <span class="at">song_colm =</span> <span class="st">"song"</span>, <span class="at">parallel =</span> <span class="dv">1</span>, <span class="at">pb =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
@@ -4800,11 +4800,11 @@ Adding another scale for fill, which will replace the existing scale.</code></pr
 </div>
 </div>
 <p>&nbsp;</p>
-<p>Calculate song-level parameters selecting parameters with ‘mean_colm’:</p>
+<p>Calculate song-level features selecting features with ‘mean_colm’:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># caculate song-level parameters selecting parameters with mean_colm</span></span>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># caculate song-level features selecting features with mean_colm</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">song_analysis</span>(<span class="at">X =</span> sp, <span class="at">song_colm =</span> <span class="st">"song"</span>,<span class="at">mean_colm =</span> <span class="fu">c</span>(<span class="st">"dfrange"</span>, <span class="st">"duration"</span>), <span class="at">parallel =</span> <span class="dv">1</span>, <span class="at">pb =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
@@ -4908,7 +4908,7 @@ Adding another scale for fill, which will replace the existing scale.</code></pr
 </div>
 </div>
 <p>&nbsp;</p>
-<p>Calculate song-level parameters for selecting parameters with ‘mean_colm’, ‘max_colm’ and ‘min_colm’ and weighted by duration:</p>
+<p>Calculate song-level features for selecting features with ‘mean_colm’, ‘max_colm’ and ‘min_colm’ and weighted by duration:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
@@ -5049,8 +5049,8 @@ Adding another scale for fill, which will replace the existing scale.</code></pr
 </div>
 <p>&nbsp;</p>
 <ul>
-<li><p>Calculate spectrographic parameters (<code>spectro_analysis()</code>) for the Spix’s disc-winged bat response calls.</p></li>
-<li><p>Summarize parameters by call (<code>song_analysis()</code>). To do that you should add the column ‘start’, ‘end’ and ‘call’ to the output of <code>spectro_analysis()</code></p></li>
+<li><p>Calculate spectrographic features (<code>spectro_analysis()</code>) for the Spix’s disc-winged bat response calls.</p></li>
+<li><p>Summarize features by call (<code>song_analysis()</code>). To do that you should add the column ‘start’, ‘end’ and ‘call’ to the output of <code>spectro_analysis()</code></p></li>
 </ul>
 </div>
 <p>&nbsp;</p>

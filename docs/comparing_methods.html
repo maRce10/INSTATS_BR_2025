@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-10-01">
+<meta name="dcterms.date" content="2025-10-02">
 
 <title>Comparing methods for measuring acoustic structure – Bioacoustic Data Analysis Using R 2025</title>
 <style>
@@ -194,11 +194,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-colab-notebooks">    
         <li>
-    <a class="dropdown-item" href="https://colab.research.google.com/drive/1KKmndmWB73ZDLfT0eVBArEZX4eVGsVMc?usp=sharing">
+    <a class="dropdown-item" href="https://colab.research.google.com/drive/13Hb4sdvg6FgQi0pF1Z-Y2UrirVPpNJjb?usp=sharing">
  <span class="dropdown-text">General</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://colab.research.google.com/drive/1t3Wn9OifcZTvxOMVNmz9dF25vnzU3_Fr?usp=sharing">
+    <a class="dropdown-item" href="https://colab.research.google.com/github/maRce10/dynaSpec/blob/master/dynaSpec.ipynb">
  <span class="dropdown-text">dynaSpec</span></a>
   </li>  
         <li>
@@ -212,7 +212,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Course prep</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://codefile.io/f/inMsojTFoN"> 
+    <a class="nav-link" href="https://codefile.io/f/it6V84xpHM"> 
 <span class="menu-text">Code sharing</span></a>
   </li>  
   <li class="nav-item">
@@ -266,7 +266,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 1, 2025</p>
+      <p class="date">October 2, 2025</p>
     </div>
   </div>
   
@@ -292,7 +292,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Spectrographic cross correlation (using the <code>cross_correlation()</code> function)</li>
 <li>Dynamic time warping (DTW) in time series of dominant (using <code>freq_DTW()</code>) and fundamental frequency (using <code>freq_DTW()</code>)</li>
-<li>Spectral parameters (using <code>spectro_analysis()</code>)</li>
+<li>Spectral features (using <code>spectro_analysis()</code>)</li>
 <li>Descriptors of ceptrals coefficients (using <code>mfcc_stats()</code>)</li>
 </ul>
 <p>The graphs also contain 2 scatter plots (1 for each method) of the acoustic space of all the signals in the input data frame ‘X’. The position of the 4 signals in the spectrograms is highlighted in the acoustic space plots. In this way, users can directly assess whether the distances between the signals in the acoustic space accurately represent the spectrographic similarity (i.e.&nbsp;how similar its structure looks on the spectrograms).</p>
@@ -320,7 +320,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>&nbsp;</p>
 <p><img src="images/compare.methods.1.gif" class="img-fluid"></p>
 <p>&nbsp;</p>
-<p>The distance of the acoustic pair between the signals is shown next to the arrows that link them. The font color of a distance value corresponds to the font color of the method that generated it, as shown in the scatter diagrams (in this case, the black font represents the XCORR distances). The distances are standardized, being 0 the distance of a signal to itself and 1 the distance in pairs farthest in the set of signals. The principal component analysis (function <code>prcomp()</code>) is applied to calculate distances when spectral parameters (SP) are used. In that case the first 2 components are used. Classic multidimensional scaling, also known as principal coordinate analysis, function <code>cmdscale()</code>) is used for all other methods. The file name contains the methods that are compared and the row number of the selections. This function internally uses a modified version of the <code>spectro()</code> function of the <strong>seewave</strong> package to create spectrograms. Note that all spectrograms are plotted with the same frequency and time scale.</p>
+<p>The distance of the acoustic pair between the signals is shown next to the arrows that link them. The font color of a distance value corresponds to the font color of the method that generated it, as shown in the scatter diagrams (in this case, the black font represents the XCORR distances). The distances are standardized, being 0 the distance of a signal to itself and 1 the distance in pairs farthest in the set of signals. The principal component analysis (function <code>prcomp()</code>) is applied to calculate distances when spectral features (SP) are used. In that case the first 2 components are used. Classic multidimensional scaling, also known as principal coordinate analysis, function <code>cmdscale()</code>) is used for all other methods. The file name contains the methods that are compared and the row number of the selections. This function internally uses a modified version of the <code>spectro()</code> function of the <strong>seewave</strong> package to create spectrograms. Note that all spectrograms are plotted with the same frequency and time scale.</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
@@ -336,7 +336,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Use the <code>compare_methods()</code> function to compare the following methods:</p>
 <ul>
 <li>descriptors of cepstral coefficients (“MFCC”) vs cross-correlation (“XCORR”)</li>
-<li>dynamic time warping on dominant frequency contours (“dfDTW”), spectrographic parameters (“SP”)</li>
+<li>dynamic time warping on dominant frequency contours (“dfDTW”), spectrographic features (“SP”)</li>
 </ul></li>
 </ul>
 <p>&nbsp;</p>
@@ -349,11 +349,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="compare-custom-measurements" class="level2" data-number="0.2">
 <h2 data-number="0.2" class="anchored" data-anchor-id="compare-custom-measurements"><span class="header-section-number">0.2</span> Compare custom measurements</h2>
-<p>Alternatively, you can provide your own data. This could be useful to eliminate unwanted parameters or to enter parameters obtained with other programs (for example, from Raven). To do this, enter your data with the argument <code>custom1</code>. The following example 1) calculate the spectral parameters with the <code>spectro_analysis()</code> function, 2) select only the first 7 columns of the output, and 3) enter this data in <code>compare_methods()</code>:</p>
+<p>Alternatively, you can provide your own data. This could be useful to eliminate unwanted features or to enter features obtained with other programs (for example, from Raven). To do this, enter your data with the argument <code>custom1</code>. The following example 1) calculate the spectral features with the <code>spectro_analysis()</code> function, 2) select only the first 7 columns of the output, and 3) enter this data in <code>compare_methods()</code>:</p>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># measure parameters</span></span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># measure features</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">&lt;-</span> <span class="fu">spectro_analysis</span>(lbh_selec_table)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># selec a subset</span></span>
@@ -392,7 +392,7 @@ Click to see
  collate  en_US.UTF-8
  ctype    en_US.UTF-8
  tz       America/Costa_Rica
- date     2025-10-01
+ date     2025-10-02
  pandoc   3.2 @ /usr/lib/rstudio/resources/app/bin/quarto/bin/tools/x86_64/ (via rmarkdown)
  quarto   1.7.31 @ /usr/local/bin/quarto
 

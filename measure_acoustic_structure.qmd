@@ -32,11 +32,11 @@ library(PhenotypeSpace)
 
  
 
-Acoustic signals are multidimensional traits; they vary complexly in time, frequency, amplitude and combinations of these dimensions. Generally, in biology we want to measure aspects of acoustic signals that vary in response to the factors predicted by our hypotheses. In some cases we even lack predictions for specific acoustic parameters and we need to evaluate the relative similarity between the variants of a signal in a population. These analyses require a diversity of tools for quantifying the multiple dimensions in which we can decompose the signals.
+Acoustic signals are multidimensional traits; they vary complexly in time, frequency, amplitude and combinations of these dimensions. Generally, in biology we want to measure aspects of acoustic signals that vary in response to the factors predicted by our hypotheses. In some cases we even lack predictions for specific acoustic features and we need to evaluate the relative similarity between the variants of a signal in a population. These analyses require a diversity of tools for quantifying the multiple dimensions in which we can decompose the signals.
 
 The **warbleR** package is designed to quantify the acoustic structure of a population of signals using 4 main methods of analysis. 2 of them are absolute measures of the structure:
 
--   Spectrographic parameters
+-   Spectrographic features
 -   Statistical descriptors of cepstral coefficients
 
 The other 2 provide a relative similarity value between signals:
@@ -132,9 +132,9 @@ knitr::include_graphics("./images/Catalog_p1.jpeg")
 
 :::
 
-## Spectrographic parameters
+## Spectrographic features
 
-The `spectro_analysis()` function measures the following spectrographic parameters related to amplitude distributions in time and frequency, descriptors of the fundamental and dominant frequency contours and descriptors of harmonic content:
+The `spectro_analysis()` function measures the following spectrographic features related to amplitude distributions in time and frequency, descriptors of the fundamental and dominant frequency contours and descriptors of harmonic content:
 
  
 
@@ -161,7 +161,7 @@ The `spectro_analysis()` function measures the following spectrographic paramete
 
 -   sp.ent: spectral entropy. Frequency spectrum energy distribution. Pure tone \~ 0; loud \~ 1
 
--   peakf: peak frequency. Frequency with the highest energy. This parameter can take a considerable amount of time to measure. Only generated if `fast = FALSE`. It provides a more accurate measurement of the peak frequency than `meanpeakf()`, but can be more easily affected by background noise
+-   peakf: peak frequency. Frequency with the highest energy. This feature can take a considerable amount of time to measure. Only generated if `fast = FALSE`. It provides a more accurate measurement of the peak frequency than `meanpeakf()`, but can be more easily affected by background noise
 
 -   meanpeakf: mean peak frequency. Frequency with the highest energy of the medium frequency spectrum (see `meanspec()`). Typically more consistent than `peakf()`
 
@@ -315,7 +315,7 @@ ggplot(sp_pcs,
 <font size="5">Exercise</font>
 
 
--   The parameters related to harmonic content were not calculated. How can we do that?
+-   The features related to harmonic content were not calculated. How can we do that?
 
 -   How does measuring harmonic content affect performance?
 
@@ -328,7 +328,7 @@ ggplot(sp_pcs,
 
 These coefficients were designed to decompose the sounds in a similar way than the human auditory system in order to facilitate speech recognition. The central idea is to compress the acoustic data maintaining only relevant information for the detection of phonetic differences. The principle refers to human hearing using the Mel logarithmic scale whose definition is based on how the human ear perceives frequency and loudness (Sueur 2018). Cepstral coefficients are literally defined as "the result of a cosine transformation of the real logarithm of short-term energy spectra expressed on a Mel frequency scale".
 
-The descriptive statistics that are extracted from the cepstral coefficients are: minimum, maximum, average, median, asymmetry, kurtosis and variance. It also returns the mean and variance for the first and second derivatives of the coefficients. These parameters are commonly used in the processing and detection of acoustic signals (e.g. Salamon et al 2014). They have been widely used for human voice analysis and its use has extended to mammalian bioacoustics, although they also appear to be useful for quantifying the structure of acoustic signals in other groups.
+The descriptive statistics that are extracted from the cepstral coefficients are: minimum, maximum, average, median, asymmetry, kurtosis and variance. It also returns the mean and variance for the first and second derivatives of the coefficients. These features are commonly used in the processing and detection of acoustic signals (e.g. Salamon et al 2014). They have been widely used for human voice analysis and its use has extended to mammalian bioacoustics, although they also appear to be useful for quantifying the structure of acoustic signals in other groups.
 
 In **warbleR** we can calculate statistical descriptors of cepstral coefficients with the `mfcc_stats()` function:
 
@@ -353,7 +353,7 @@ box_css = "border: 1px solid #ddd; padding: 5px; ", extra_css = NULL)
 
 ```
 
-Similarly to the spectrographic parameters, we can reduce the dimensionality of the cepstral coefficients using PCA:
+Similarly to the spectrographic features, we can reduce the dimensionality of the cepstral coefficients using PCA:
 
 ```{r}
 #| eval: false
@@ -666,7 +666,7 @@ Compare dissimilarity from cross-correlation (1 - correlation matrix) with indiv
 
 ### Signal-to-noise ratio
 
-`sig2noise()` measures this parameter. The duration of the margin in which to measure the background noise must be provided (`mar` argument):
+`sig2noise()` measures this feature. The duration of the margin in which to measure the background noise must be provided (`mar` argument):
 
 ```{r, eval = FALSE}
 
@@ -717,16 +717,16 @@ kable_styling(kbl, bootstrap_options = c("striped", "hover", "condensed", "respo
 
  
 
-### Calculates parameters at higher levels of organization
+### Calculates features at higher levels of organization
 
-Vocalizations can be organized above the basic signal units like in long repertoire songs or multi-syllable calls. We can calculate average or extreme values of acoustic parameters of the sub-units for these higher levels of organization using the function `song_analysis()`:
+Vocalizations can be organized above the basic signal units like in long repertoire songs or multi-syllable calls. We can calculate average or extreme values of acoustic features of the sub-units for these higher levels of organization using the function `song_analysis()`:
 
 ```{r, eval = FALSE}
 
 # add a 'song' column
 lbh_selec_table$song <- rep(1:4, each = 3)[1:11]
 
-# measure default parameters
+# measure default features
 song_analysis(X = lbh_selec_table, song_colm = "song", parallel = 1, pb = TRUE)
 ```
 
@@ -736,7 +736,7 @@ song_analysis(X = lbh_selec_table, song_colm = "song", parallel = 1, pb = TRUE)
 # add a 'song' column
 lbh_selec_table$song <- rep(1:4, each = 3)[1:11]
 
-# measure default parameters
+# measure default features
 W <- song_analysis(X = lbh_selec_table, song_colm = "song", parallel = 1, pb = TRUE)
 
 kbl <- kable(W, align = "c", row.names = F,  format = "html")
@@ -745,16 +745,16 @@ kable_styling(kbl, bootstrap_options = c("striped", "hover", "condensed", "respo
 
 ```
 
-This can also be done on parameters extracted from other functions:
+This can also be done on features extracted from other functions:
 
 ```{r eval = FALSE}
 
-# measure acoustic parameters
+# measure acoustic features
 sp <- spectro_analysis(lbh_selec_table[1:8, ], bp = c(1, 11), 300, fast = TRUE)
 
 sp <- merge(sp, lbh_selec_table[1:8, ], by = c("sound.files", "selec"))
 
-# caculate song-level parameters for all numeric parameters
+# caculate song-level features for all numeric features
 song_analysis(X = sp, song_colm = "song", parallel = 1, pb = TRUE)
 
 
@@ -767,12 +767,12 @@ warbleR_options(wav.path = "./examples")
 # add a 'song' column
 lbh_selec_table$song <- rep(1:4, each = 3)[1:11]
 
-# measure acoustic parameters
+# measure acoustic features
 sp <- spectro_analysis(lbh_selec_table[1:8, ], bp = c(1, 11), 300, fast = TRUE)
 
 sp <- merge(sp, lbh_selec_table[1:8, ], by = c("sound.files", "selec"))
 
-# caculate song-level parameters for all numeric parameters
+# caculate song-level features for all numeric features
 W <- song_analysis(X = sp, song_colm = "song", parallel = 1, pb = TRUE)
 
 kbl <- kable(W, align = "c", row.names = F,  format = "html")
@@ -787,11 +787,11 @@ box_css = "border: 1px solid #ddd; padding: 5px; ", extra_css = NULL)
 
  
 
-Calculate song-level parameters selecting parameters with 'mean_colm':
+Calculate song-level features selecting features with 'mean_colm':
 
 ```{r, eval = FALSE}
 
-# caculate song-level parameters selecting parameters with mean_colm
+# caculate song-level features selecting features with mean_colm
 song_analysis(X = sp, song_colm = "song",mean_colm = c("dfrange", "duration"), parallel = 1, pb = TRUE)
 
 ```
@@ -813,7 +813,7 @@ box_css = "border: 1px solid #ddd; padding: 5px; ", extra_css = NULL)
 
  
 
-Calculate song-level parameters for selecting parameters with 'mean_colm', 'max_colm' and 'min_colm' and weighted by duration:
+Calculate song-level features for selecting features with 'mean_colm', 'max_colm' and 'min_colm' and weighted by duration:
 
 ```{r, eval = FALSE}
 
@@ -887,9 +887,9 @@ response_calls <- readRDS("./examples/response_calls.RDS")
 
  
 
--   Calculate spectrographic parameters (`spectro_analysis()`) for the Spix's disc-winged bat response calls.
+-   Calculate spectrographic features (`spectro_analysis()`) for the Spix's disc-winged bat response calls.
 
--   Summarize parameters by call (`song_analysis()`). To do that you should add the column 'start', 'end' and 'call' to the output of `spectro_analysis()`
+-   Summarize features by call (`song_analysis()`). To do that you should add the column 'start', 'end' and 'call' to the output of `spectro_analysis()`
 :::
 
  

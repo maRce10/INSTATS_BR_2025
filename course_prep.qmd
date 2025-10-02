@@ -14,6 +14,9 @@ knitr::opts_chunk$set(eval = FALSE)
 
 ```
 
+### Critical software {.unnumbered .unlisted}
+
+
 1)  Install or update R on the computer you will use during the course (<https://cran.r-project.org>). I assume that you already have it installed, but try to update it if you have a R version \< 4.0.0. You can find which R version you have by running this in the R console:
 
 ```{r}
@@ -77,7 +80,10 @@ load_packages(packages = c(
 
 10) Install Raven lite from [ttp://ravensoundsoftware.com/raven-pricing/](http://ravensoundsoftware.com/raven-pricing/)(scroll down to "Raven Lite 2.0" and click on "Order Free Raven Lite 2.0 License"). Ignore if you have any Raven version already installed.
 
-11) Install ffmpeg (only needed for dynaSpec package, not critical):
+
+### Non-critical software (not needed for most of the course) {.unnumbered .unlisted}
+
+1) Install ffmpeg (only needed for dynaSpec package, not critical):
 
 <https://ffmpeg.org/download.html>
 
@@ -85,15 +91,17 @@ take a look at this link if you have issues installing ffmpeg on windows:
 
 <https://github.com/maRce10/dynaSpec/issues/3>
 
-12) Install Audacity (not critical, you can use Adobe Audition instead):
+2) Install Audacity (not critical, you can use Adobe Audition instead):
 
 <https://www.audacityteam.org/download/>
 
-13) Install SOX. It can be downloaded from here (not critical but could be useful): [http://sox.sourceforge.net](http://sox.sourceforge.net/) (*Not critical*)
+3) Install SOX. It can be downloaded from here (not critical but could be useful): [http://sox.sourceforge.net](http://sox.sourceforge.net/) (*Not critical*)
 
-14) Install FLAC. It can be downloaded from here (also not critical): [https://xiph.org/flac/download.html](http://sox.sourceforge.net/) (*Not critical*)
+4) Install FLAC. It can be downloaded from here (also not critical): [https://xiph.org/flac/download.html](http://sox.sourceforge.net/) (*Not critical*)
 
-15) Note that you can also run the code using google colab. Take a look at this notebook: [https://colab.research.google.com/](https://colab.research.google.com/drive/1KKmndmWB73ZDLfT0eVBArEZX4eVGsVMc?usp=sharing#scrollTo=05bsvm_f7UNt)
+
+
+Note that you can also run the code using google colab. Take a look at this notebook: [https://colab.research.google.com/](https://colab.research.google.com/drive/13Hb4sdvg6FgQi0pF1Z-Y2UrirVPpNJjb?usp=sharing)
 
  
 

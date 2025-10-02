@@ -20,7 +20,7 @@ The `compare_methods()` function from **warbleR** attempts to facilitate the sel
 
 -   Spectrographic cross correlation (using the `cross_correlation()` function)
 -   Dynamic time warping (DTW) in time series of dominant (using `freq_DTW()`) and fundamental frequency (using `freq_DTW()`)
--   Spectral parameters (using `spectro_analysis()`)
+-   Spectral features (using `spectro_analysis()`)
 -   Descriptors of ceptrals coefficients (using `mfcc_stats()`)
 
 The graphs also contain 2 scatter plots (1 for each method) of the acoustic space of all the signals in the input data frame 'X'. The position of the 4 signals in the spectrograms is highlighted in the acoustic space plots. In this way, users can directly assess whether the distances between the signals in the acoustic space accurately represent the spectrographic similarity (i.e. how similar its structure looks on the spectrograms).
@@ -64,7 +64,7 @@ Looking at several iterations of the comparison, you can have a better idea of w
 
  
 
-The distance of the acoustic pair between the signals is shown next to the arrows that link them. The font color of a distance value corresponds to the font color of the method that generated it, as shown in the scatter diagrams (in this case, the black font represents the XCORR distances). The distances are standardized, being 0 the distance of a signal to itself and 1 the distance in pairs farthest in the set of signals. The principal component analysis (function `prcomp()`) is applied to calculate distances when spectral parameters (SP) are used. In that case the first 2 components are used. Classic multidimensional scaling, also known as principal coordinate analysis, function `cmdscale()`) is used for all other methods. The file name contains the methods that are compared and the row number of the selections. This function internally uses a modified version of the `spectro()` function of the **seewave** package to create spectrograms. Note that all spectrograms are plotted with the same frequency and time scale.
+The distance of the acoustic pair between the signals is shown next to the arrows that link them. The font color of a distance value corresponds to the font color of the method that generated it, as shown in the scatter diagrams (in this case, the black font represents the XCORR distances). The distances are standardized, being 0 the distance of a signal to itself and 1 the distance in pairs farthest in the set of signals. The principal component analysis (function `prcomp()`) is applied to calculate distances when spectral features (SP) are used. In that case the first 2 components are used. Classic multidimensional scaling, also known as principal coordinate analysis, function `cmdscale()`) is used for all other methods. The file name contains the methods that are compared and the row number of the selections. This function internally uses a modified version of the `spectro()` function of the **seewave** package to create spectrograms. Note that all spectrograms are plotted with the same frequency and time scale.
 
 ```{r, eval = F}
 
@@ -84,7 +84,7 @@ compare_methods(X = lbh_selec_table, methods = c("XCORR", "SP"))
 -   Use the `compare_methods()` function to compare the following methods:
 
     -   descriptors of cepstral coefficients ("MFCC") vs cross-correlation ("XCORR")
-    -   dynamic time warping on dominant frequency contours ("dfDTW"), spectrographic parameters ("SP")
+    -   dynamic time warping on dominant frequency contours ("dfDTW"), spectrographic features ("SP")
 
  
 
@@ -97,11 +97,11 @@ compare_methods(X = lbh_selec_table, methods = c("XCORR", "SP"))
 
 ## Compare custom measurements
 
-Alternatively, you can provide your own data. This could be useful to eliminate unwanted parameters or to enter parameters obtained with other programs (for example, from Raven). To do this, enter your data with the argument `custom1`. The following example 1) calculate the spectral parameters with the `spectro_analysis()` function, 2) select only the first 7 columns of the output, and 3) enter this data in `compare_methods()`:
+Alternatively, you can provide your own data. This could be useful to eliminate unwanted features or to enter features obtained with other programs (for example, from Raven). To do this, enter your data with the argument `custom1`. The following example 1) calculate the spectral features with the `spectro_analysis()` function, 2) select only the first 7 columns of the output, and 3) enter this data in `compare_methods()`:
 
 ```{r, eval = F}
 
-# measure parameters
+# measure features
 Y <- spectro_analysis(lbh_selec_table)
 
 # selec a subset
