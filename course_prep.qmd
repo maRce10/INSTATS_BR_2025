@@ -14,7 +14,7 @@ knitr::opts_chunk$set(eval = FALSE)
 
 ```
 
-### Critical software {.unnumbered .unlisted}
+## Critical software {.unnumbered .unlisted}
 
 
 1)  Install or update R on the computer you will use during the course (<https://cran.r-project.org>). I assume that you already have it installed, but try to update it if you have a R version \< 4.0.0. You can find which R version you have by running this in the R console:
@@ -34,13 +34,13 @@ update.packages(ask = FALSE)
 
 3)  Install or update the RStudio interface (<https://www.rstudio.com/products/rstudio/download/>, choose the free version). Optional but advised.
 
-4)  Make a directory called "BIAC04", this will be your working directory for the course.
+4)  Make a directory called "BIACOUSTICS_R_2025" (or any name you want), this will be your working directory for the course.
 
 5)  Open RStudio and select the tab "Tools" then "Global Options" (last option). Select the "Code" option, then select the box for "Soft-wrap R source files".
 
 6)  Also in Rstudio: Select the "Pane Layout" option and move "Source" to the top left pane and "Console" to the top right pane. For those of you unfamiliar with RStudio, the source is your script, where you save code in a physical file (usually .R script) and the console prints the output of the code you run from the source. You can write code in the console, but it will not be saved in a physical file. This layout allocates more screen space to the most useful panes. Hit "Apply" and "Ok".
 
-7)  Also in Rstudio: Go back up to the "File" tab and select "New Project", then select the "BIAC04" directory.
+7)  Also in Rstudio: Go back up to the "File" tab and select "New Project", then select the "BIACOUSTICS_R_2025" directory.
 
 8)  Now in the R console in Rstudio: Run the following code to install the latest developmental versions (from github) of warbleR, Rraven, PhenotypeSpace, ohun, baRulho and dynaSpec (remove the packages first if you have them installed already).
 
@@ -81,9 +81,9 @@ load_packages(packages = c(
 10) Install Raven lite from [ttp://ravensoundsoftware.com/raven-pricing/](http://ravensoundsoftware.com/raven-pricing/)(scroll down to "Raven Lite 2.0" and click on "Order Free Raven Lite 2.0 License"). Ignore if you have any Raven version already installed.
 
 
-### Non-critical software (not needed for most of the course) {.unnumbered .unlisted}
+## Non-critical software (not needed for most of the course) {.unnumbered .unlisted}
 
-1) Install ffmpeg (only needed for dynaSpec package, not critical):
+1) Install ffmpeg (only needed for dynaSpec package):
 
 <https://ffmpeg.org/download.html>
 
@@ -91,17 +91,23 @@ take a look at this link if you have issues installing ffmpeg on windows:
 
 <https://github.com/maRce10/dynaSpec/issues/3>
 
-2) Install Audacity (not critical, you can use Adobe Audition instead):
+2) Install Audacity (you can use Adobe Audition instead):
 
 <https://www.audacityteam.org/download/>
 
-3) Install SOX. It can be downloaded from here (not critical but could be useful): [http://sox.sourceforge.net](http://sox.sourceforge.net/) (*Not critical*)
+3) Install SOX. It can be downloaded from here: 
 
-4) Install FLAC. It can be downloaded from here (also not critical): [https://xiph.org/flac/download.html](http://sox.sourceforge.net/) (*Not critical*)
+[http://sox.sourceforge.net](http://sox.sourceforge.net/)
+
+4) Install FLAC. It can be downloaded from here: 
+
+[https://xiph.org/flac/download.html](http://sox.sourceforge.net/)
 
 
 
-Note that you can also run the code using google colab. Take a look at this notebook: [https://colab.research.google.com/](https://colab.research.google.com/drive/13Hb4sdvg6FgQi0pF1Z-Y2UrirVPpNJjb?usp=sharing)
+Note that you can also run the code using google colab. Take a look at this notebook:
+
+[https://colab.research.google.com/](https://colab.research.google.com/drive/13Hb4sdvg6FgQi0pF1Z-Y2UrirVPpNJjb?usp=sharing)
 
  
 
